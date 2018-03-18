@@ -12,6 +12,8 @@ namespace sample
     {
         public static void Main(string[] args)
         {
+            var app1 = new Application("org.gtk.example", GApplicationFlags.None);
+            app1.ConnectSignal("activate", Activate, FreeData);
             var app = NativeMethods.gtk_application_new("org.gtk.example", GApplicationFlags.None);
             NativeMethods.g_signal_connect_data(app, "activate",
                 Marshal.GetFunctionPointerForDelegate(new CallBack(Activate)),
@@ -26,9 +28,13 @@ namespace sample
 
         private static void Activate(IntPtr app, IntPtr data)
         {
-            var window = NativeMethods.gtk_application_window_new(app);
-            NativeMethods.gtk_window_set_title(window, "Window");
-            NativeMethods.gtk_window_set_default_size(window, 200, 200);
+            var window = new Window(app);
+            window.SetTitle("Window");
+            window.SetDefaultSize(200, 200);
+            
+            //var window = NativeMethods.gtk_application_window_new(app);
+            //NativeMethods.gtk_window_set_title(window, "Window");
+            //NativeMethods.gtk_window_set_default_size(window, 200, 200);
 
             var buttonBox = NativeMethods.gtk_button_box_new(GtkOrientation.Horizontal);
             NativeMethods.gtk_container_add(window, buttonBox);

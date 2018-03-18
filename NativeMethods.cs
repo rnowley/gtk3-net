@@ -27,7 +27,7 @@ namespace gtk3_net
         public static extern IntPtr gtk_application_window_new(IntPtr application);
 
         [DllImport(GtkLib, CharSet = CharSet.Ansi)]
-        public static extern IntPtr gtk_window_set_title(IntPtr window, string title);
+        public static extern void gtk_window_set_title(IntPtr window, string title);
 
         [DllImport(GtkLib, CharSet = CharSet.Ansi)]
         public static extern void gtk_window_set_default_size(IntPtr window, int width, int height);
@@ -46,36 +46,19 @@ namespace gtk3_net
             IntPtr data);
 
         [DllImport(GtkLib)]
+        public static extern void gtk_container_set_border_width(IntPtr instance, uint borderWidth);
+
+        [DllImport(GtkLib)]
+        public static extern void gtk_grid_new();
+
+        [DllImport(GtkLib)]
+        public static extern void gtk_grid_attach(IntPtr grid, IntPtr child, int left, int top, int width, int height);
+        
+        [DllImport(GtkLib)]
         public static extern void gtk_widget_destroy(IntPtr widget);
 
         [DllImport(GtkLib, CharSet = CharSet.Ansi)]
         public static extern IntPtr gtk_button_new_with_label(string label);
     }
 
-    [Flags]
-    public enum GApplicationFlags
-    {
-        None
-    }
-
-    [Flags]
-    public enum GConnectFlags
-    {
-        /// <summary>
-        ///     whether the handler should be called before or after the default handler of the signal.
-        /// </summary>
-        ConnectAfter,
-
-        /// <summary>
-        ///     whether the instance and data should be swapped when calling the handler; see g_signal_connect_swapped() for an
-        ///     example.
-        /// </summary>
-        ConnectSwapped
-    }
-
-    public enum GtkOrientation
-    {
-        Horizontal,
-        Vertical
-    }
 }
