@@ -14,12 +14,14 @@ namespace sample
         {
             var app1 = new Application("org.gtk.example", GApplicationFlags.None);
             app1.ConnectSignal("activate", Activate, FreeData);
-            var app = NativeMethods.gtk_application_new("org.gtk.example", GApplicationFlags.None);
-            NativeMethods.g_signal_connect_data(app, "activate",
-                Marshal.GetFunctionPointerForDelegate(new CallBack(Activate)),
-                IntPtr.Zero, FreeData, GConnectFlags.ConnectAfter);
-            NativeMethods.g_application_run(app, args.Length, args);
-            NativeMethods.g_object_unref(app);
+            app1.Run(0, args);
+            app1.Exit();
+            //var app = NativeMethods.gtk_application_new("org.gtk.example", GApplicationFlags.None);
+            //NativeMethods.g_signal_connect_data(app, "activate",
+            //    Marshal.GetFunctionPointerForDelegate(new CallBack(Activate)),
+            //    IntPtr.Zero, FreeData, GConnectFlags.ConnectAfter);
+            //NativeMethods.g_application_run(app, args.Length, args);
+            //NativeMethods.g_object_unref(app);
         }
 
         private static void FreeData()
@@ -31,29 +33,29 @@ namespace sample
             var window = new Window(app);
             window.SetTitle("Window");
             window.SetDefaultSize(200, 200);
-            
-            //var window = NativeMethods.gtk_application_window_new(app);
-            //NativeMethods.gtk_window_set_title(window, "Window");
-            //NativeMethods.gtk_window_set_default_size(window, 200, 200);
+            window.SetBorderWidth(10);
 
-            var buttonBox = NativeMethods.gtk_button_box_new(GtkOrientation.Horizontal);
-            NativeMethods.gtk_container_add(window, buttonBox);
+            var grid = new Grid();
 
-            var button = NativeMethods.gtk_button_new_with_label("Hello World");
-            NativeMethods.g_signal_connect_data(button, "clicked", Marshal.GetFunctionPointerForDelegate(
-                    new CallBack(PrintHello)),
-                IntPtr.Zero, FreeData, GConnectFlags.ConnectAfter);
-            // Note g_signal_connect and g_signal_connect_swapped are macros around g_signal_connect_data.
-            NativeMethods.g_signal_connect_data(button, "clicked", Marshal.GetFunctionPointerForDelegate(
-                new CallBack2(WindowDestroy)), window, FreeData, GConnectFlags.ConnectSwapped);
-            NativeMethods.gtk_container_add(buttonBox, button);
+            window.AddWidget(grid);
 
-            NativeMethods.gtk_widget_show_all(window);
+            var button = new Button("Button 1");
+            button.ConnectSignal("clicked", PrintHello, IntPtr.Zero, FreeData);
+            grid.Attach(button, 0, 0, 1, 1);
+
+            button = new Button("Button 2");
+            button.ConnectSignal("clicked", PrintHello, IntPtr.Zero, FreeData);
+            grid.Attach(button, 1, 0, 1, 1);
+
+            button = new Button("Quit");
+            button.ConnectSignalSwapped("clicked", WindowDestroy, window.Handle, FreeData);
+            grid.Attach(button, 0, 1, 2, 1);
+            window.Show();
         }
 
-        private static void WindowDestroy(IntPtr app)
+        private static void WindowDestroy(IntPtr app, IntPtr data)
         {
-            NativeMethods.gtk_widget_destroy(app);
+            NativeMethods.gtk_widget_destroy(data);
         }
 
         private static void PrintHello(IntPtr app, IntPtr data)

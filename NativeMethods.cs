@@ -49,7 +49,7 @@ namespace gtk3_net
         public static extern void gtk_container_set_border_width(IntPtr instance, uint borderWidth);
 
         [DllImport(GtkLib)]
-        public static extern void gtk_grid_new();
+        public static extern IntPtr gtk_grid_new();
 
         [DllImport(GtkLib)]
         public static extern void gtk_grid_attach(IntPtr grid, IntPtr child, int left, int top, int width, int height);
@@ -59,6 +59,7 @@ namespace gtk3_net
 
         [DllImport(GtkLib, CharSet = CharSet.Ansi)]
         public static extern IntPtr gtk_button_new_with_label(string label);
+
     }
 
 }
