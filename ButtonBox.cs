@@ -4,10 +4,10 @@ namespace gtk3_net
 {
     public class ButtonBox : Container
     {
-        private readonly IntPtr _instance;
-        public override IntPtr Handle => _instance;
+        public override IntPtr Handle { get; }
+
         public ButtonBox(GtkOrientation orientation) {
-            _instance = NativeMethods.gtk_button_box_new(orientation);
+            Handle = NativeMethods.gtk_button_box_new(orientation);
         }
         
     }

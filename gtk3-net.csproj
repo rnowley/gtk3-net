@@ -11,4 +11,13 @@
   <ItemGroup>
     <None Remove="sample\**" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="builderExample\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="builderExample\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="builderExample\**" />
+  </ItemGroup>
 </Project>
