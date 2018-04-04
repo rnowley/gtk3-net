@@ -5,10 +5,17 @@ namespace gtk3_net
     public class Window : Container
     {
         private readonly IntPtr _instance;
+        
+        public Window() {}
 
-        public Window(IntPtr app)
+        public Window(WindowType type)
         {
-            _instance = NativeMethods.gtk_application_window_new(app);
+            _instance = NativeMethods.gtk_window_new(type);
+        }
+
+        public Window(IntPtr instance)
+        {
+            _instance = instance;
         }
 
         public void SetBorderWidth(uint borderWidth) {
@@ -18,6 +25,25 @@ namespace gtk3_net
         public void SetDefaultSize(int width, int height)
         {
             NativeMethods.gtk_window_set_default_size(_instance, 200, 200);
+        }
+
+        public void SetModal(bool isModal)
+        {
+            var boolAsInt = isModal ? 1 : 0;
+            NativeMethods.gtk_window_set_modal(Handle, boolAsInt);
+        }
+
+        public bool IsResizable()
+        {
+            int result = NativeMethods.gtk_window_get_resizable(Handle);
+
+            return result != 0;
+        }
+        
+        public void SetResizable(bool isResizable)
+        {
+            var boolAsInt = isResizable ? 1 : 0;
+            NativeMethods.gtk_window_set_resizable(Handle, boolAsInt);
         }
 
         /// <summary>

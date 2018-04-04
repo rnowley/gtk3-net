@@ -1,9 +1,11 @@
-
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# 
+#
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gtk3-net", "gtk3-net.csproj", "{43E75FB7-920D-4876-AECA-303BB386352B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sample", "sample\sample.csproj", "{614289F1-83F2-42C6-997D-374C340BDCE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "builderExample", "builderExample\builderExample.csproj", "{31D98A0A-AFEB-4823-9292-2B5EF9D61395}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,5 +33,17 @@ Global
 		{614289F1-83F2-42C6-997D-374C340BDCE3}.Release|x64.Build.0 = Release|x64
 		{614289F1-83F2-42C6-997D-374C340BDCE3}.Release|x86.ActiveCfg = Release|x86
 		{614289F1-83F2-42C6-997D-374C340BDCE3}.Release|x86.Build.0 = Release|x86
+		{31D98A0A-AFEB-4823-9292-2B5EF9D61395}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31D98A0A-AFEB-4823-9292-2B5EF9D61395}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31D98A0A-AFEB-4823-9292-2B5EF9D61395}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31D98A0A-AFEB-4823-9292-2B5EF9D61395}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31D98A0A-AFEB-4823-9292-2B5EF9D61395}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{31D98A0A-AFEB-4823-9292-2B5EF9D61395}.Debug|x64.Build.0 = Debug|Any CPU
+		{31D98A0A-AFEB-4823-9292-2B5EF9D61395}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{31D98A0A-AFEB-4823-9292-2B5EF9D61395}.Debug|x86.Build.0 = Debug|Any CPU
+		{31D98A0A-AFEB-4823-9292-2B5EF9D61395}.Release|x64.ActiveCfg = Release|Any CPU
+		{31D98A0A-AFEB-4823-9292-2B5EF9D61395}.Release|x64.Build.0 = Release|Any CPU
+		{31D98A0A-AFEB-4823-9292-2B5EF9D61395}.Release|x86.ActiveCfg = Release|Any CPU
+		{31D98A0A-AFEB-4823-9292-2B5EF9D61395}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

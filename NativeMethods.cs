@@ -60,6 +60,7 @@ namespace gtk3_net
         [DllImport(GtkLib, CharSet = CharSet.Ansi)]
         public static extern IntPtr gtk_button_new_with_label(string label);
 
+<<<<<<< HEAD
 		[DllImport(GtkLib)]
 		public static extern IntPtr gtk_flow_box_new();
 
@@ -165,6 +166,37 @@ namespace gtk3_net
 
 		[DllImport(GtkLib)]
 		public static extern IntPtr gtk_entry_new();
+=======
+        [DllImport(GtkLib)]
+        public static extern IntPtr gtk_builder_new();
+
+        [DllImport(GtkLib, CharSet = CharSet.Ansi)]
+        public static extern uint gtk_builder_add_from_file(IntPtr builder, string filename, IntPtr error);
+        
+        [DllImport(GtkLib, CharSet = CharSet.Ansi)]
+        public static extern IntPtr gtk_builder_get_object(IntPtr builder, string name);
+        
+        [DllImport(GtkLib)]
+        public static extern void gtk_main();
+        
+        [DllImport(GtkLib)]
+        public static extern void gtk_main_quit();
+        
+        [DllImport(GtkLib, CharSet = CharSet.Ansi)]
+        public static extern void gtk_init(int argc, string[] argv);
+        
+        [DllImport(GtkLib)]
+        public static extern IntPtr gtk_window_new(WindowType type);
+        
+        [DllImport(GtkLib)]
+        public static extern void gtk_window_set_modal(IntPtr window, int modal);
+        
+        [DllImport(GtkLib)]
+        public static extern int gtk_window_get_resizable(IntPtr window);
+        
+        [DllImport(GtkLib)]
+        public static extern void gtk_window_set_resizable(IntPtr window, int isResizable);
+>>>>>>> df10237a9b415f5e08bc33e517f5de573363650c
     }
 
 }

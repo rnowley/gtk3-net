@@ -20,6 +20,12 @@ namespace gtk3_net
                 destroyData, GConnectFlags.ConnectAfter);
         }
 
+        public Window CreateWindow()
+        {
+            var windowHandle = NativeMethods.gtk_application_window_new(Handle);
+            return new Window(windowHandle);
+        }
+
         public int Run(int argc, string[] argv)
         {
             return NativeMethods.g_application_run(_instance, argc, argv);
