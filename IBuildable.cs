@@ -20,8 +20,8 @@
         /// <param name="builder">A UIBuilder object</param>
         /// <param name="childToAdd">The child that we want to add toi the Buildable object.</param>
         /// <param name="type">The kind of child or null.</param>
-        void AddChild(UIBuilder builder, Widget childToAdd, string type);
+        void AddChild(UiBuilder builder, Widget childToAdd, string type);
 
-        void SetBuildableProperty(UIBuilder builder, string name, object value);
+        void SetBuildableProperty(UiBuilder builder, string name, object value);
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.InteropServices;
 using gtk3_net;
 
 namespace sample

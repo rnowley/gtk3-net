@@ -1,6 +1,6 @@
 ﻿namespace gtk3_net
 {
-    public enum GtkOrientation
+    public enum Orientation
     {
         Horizontal,
         Vertical

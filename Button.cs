@@ -1,4 +1,5 @@
 using System;
+using gtk3_net.Native;
 
 namespace gtk3_net
 {
@@ -10,7 +11,7 @@ namespace gtk3_net
         
         public Button(string label)
         {
-            _instance = NativeMethods.gtk_button_new_with_label(label);
+            _instance = GtkButton.gtk_button_new_with_label(label);
         }
 
         public Button(IntPtr instance)

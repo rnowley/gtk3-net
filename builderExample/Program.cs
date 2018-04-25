@@ -9,7 +9,7 @@ namespace builderExample
         {
             GtkApplication.Init(args.Length, args);
             
-            var builder = new UIBuilder();
+            var builder = new UiBuilder();
             builder.AddFromFile("builder.ui", IntPtr.Zero);
 
             var window = builder.GetObject("window", l => new Window(l));

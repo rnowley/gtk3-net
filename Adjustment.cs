@@ -1,4 +1,5 @@
 using System;
+using gtk3_net.Native;
 
 namespace gtk3_net
 {
@@ -22,7 +23,7 @@ namespace gtk3_net
 		/// <param name="pageSize">The page size</param>
 		public Adjustment(double value, double lower, double upper, double stepIncrement,
 				double pageIncrement, double pageSize) {
-			_instance = NativeMethods.gtk_adjustment_new(value, lower,
+			_instance = GtkAdjustment.gtk_adjustment_new(value, lower,
 					upper, stepIncrement, pageIncrement, pageSize);
 
 		}
@@ -39,7 +40,7 @@ namespace gtk3_net
 		/// A "value-changed" signal will be emitted if the value is changed.
 		///</remarks>
 		public void ClampPage(double lower, double upper) {
-			NativeMethods.gtk_adjustment_clamp_page(Handle, lower, upper);
+			GtkAdjustment.gtk_adjustment_clamp_page(Handle, lower, upper);
 		}
 
 		///<summary>
@@ -56,7 +57,7 @@ namespace gtk3_net
 		///</remarks>
 		public void Configure(double value, double lower, double upper, double stepIncrement,
 				double pageIncrement, double pageSize) {
-			NativeMethods.gtk_adjustment_configure(Handle, value, lower, upper,
+			GtkAdjustment.gtk_adjustment_configure(Handle, value, lower, upper,
 					stepIncrement, pageIncrement, pageSize);
 		}
 
@@ -64,13 +65,9 @@ namespace gtk3_net
 		/// Gets or sets the minimum value of the adjustment.
 		///</summary>
 		public double Lower {
-			get {
-				return NativeMethods.gtk_adjustment_get_lower(Handle);
-			}
+			get => GtkAdjustment.gtk_adjustment_get_lower(Handle);
 
-			set {
-				NativeMethods.gtk_adjustment_set_lower(Handle, value);
-			}
+			set => GtkAdjustment.gtk_adjustment_set_lower(Handle, value);
 		}
 
 
@@ -79,52 +76,36 @@ namespace gtk3_net
 		///</summary>
 		public double Value {
 
-			get {
-				return NativeMethods.gtk_adjustment_get_value(Handle);
-			}
+			get => GtkAdjustment.gtk_adjustment_get_value(Handle);
 
-			set {
-				NativeMethods.gtk_adjustment_set_value(Handle, value);
-			}
+			set => GtkAdjustment.gtk_adjustment_set_value(Handle, value);
 		}
 
 		///<summary>
 		/// Gets or sets the page size of the adjustment.
 		///</summary>
 		public double PageSize {
-			get {
-				return NativeMethods.gtk_adjustment_get_page_size(Handle);
-			}
+			get => GtkAdjustment.gtk_adjustment_get_page_size(Handle);
 
-			set {
-				NativeMethods.gtk_adjustment_set_page_size(Handle, value);
-			}
+			set => GtkAdjustment.gtk_adjustment_set_page_size(Handle, value);
 		}
 
 		///<summary>
 		/// Gets or sets the page increment of the adjustment.
 		///</summary>
 		public double PageIncrement {
-			get {
-				return NativeMethods.gtk_adjustment_get_page_increment(Handle);
-			}
+			get => GtkAdjustment.gtk_adjustment_get_page_increment(Handle);
 
-			set {
-				NativeMethods.gtk_adjustment_set_page_increment(Handle, value);
-			}
-	   	}
+			set => GtkAdjustment.gtk_adjustment_set_page_increment(Handle, value);
+		}
 
 		///<summary>
 		/// Gets or sets the step increment of the adjustment.
 		///</summary>
 		public double StepIncrement {
-			get {
-				return NativeMethods.gtk_adjustment_get_step_increment(Handle);
-			}
+			get => GtkAdjustment.gtk_adjustment_get_step_increment(Handle);
 
-			set {
-				NativeMethods.gtk_adjustment_set_step_increment(Handle, value);
-			}
+			set => GtkAdjustment.gtk_adjustment_set_step_increment(Handle, value);
 		}
 
 		///<summary>
@@ -134,13 +115,9 @@ namespace gtk3_net
 		/// Note that values will be restricted by upper - pageSize if the pageSize property is nonzero.
 		///</remarks>
 		public double Upper {
-			get {
-				return NativeMethods.gtk_adjustment_get_upper(Handle);
-			}
+			get => GtkAdjustment.gtk_adjustment_get_upper(Handle);
 
-			set {
-				NativeMethods.gtk_adjustment_set_upper(Handle, value);
-			}
+			set => GtkAdjustment.gtk_adjustment_set_upper(Handle, value);
 		}
 
 	}

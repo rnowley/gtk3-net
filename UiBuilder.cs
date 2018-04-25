@@ -2,13 +2,13 @@
 
 namespace gtk3_net
 {
-    public class UIBuilder
+    public class UiBuilder
     {
         private readonly IntPtr _instance;
 
         public  IntPtr Handle => _instance;
 
-        public UIBuilder() {
+        public UiBuilder() {
             _instance = NativeMethods.gtk_builder_new();
         }
 

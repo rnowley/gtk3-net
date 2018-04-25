@@ -1,4 +1,5 @@
 ﻿using System;
+using gtk3_net.Native;
 
 namespace gtk3_net
 {
@@ -19,7 +20,11 @@ namespace gtk3_net
         /// </remarks>
         public void AddWidget(Widget widget)
         {
-            NativeMethods.gtk_container_add(Handle, widget.Handle);
+            GtkContainer.gtk_container_add(Handle, widget.Handle);
+        }
+        
+        public void SetBorderWidth(uint borderWidth) {
+            GtkContainer.gtk_container_set_border_width(Handle, borderWidth);
         }
     }
 }
