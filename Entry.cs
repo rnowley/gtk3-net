@@ -1,6 +1,6 @@
 using System;
 
-namespace gtk3_net
+namespace Gtk3
 {
 
 	public class Entry : Widget {

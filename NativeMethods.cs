@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Runtime.InteropServices;
-using gtk3_net.Native;
+using Gtk3.Native;
 
-namespace gtk3_net
+namespace Gtk3
 {
     public static class NativeMethods
     {

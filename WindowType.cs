@@ -1,4 +1,4 @@
-﻿namespace gtk3_net
+﻿namespace Gtk3
 {
     /// <summary>
     /// A <see cref="Window"/> can be one of these types.

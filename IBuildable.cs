@@ -1,4 +1,4 @@
-﻿namespace gtk3_net
+﻿namespace Gtk3
 {
     public interface IBuildable
     {

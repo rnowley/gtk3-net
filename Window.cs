@@ -1,7 +1,7 @@
 ﻿using System;
-using gtk3_net.Native;
+using Gtk3.Native;
 
-namespace gtk3_net
+namespace Gtk3
 {
     public class Window : Container
     {

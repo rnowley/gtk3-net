@@ -3,9 +3,9 @@ using System.Runtime.InteropServices;
 
 namespace Gtk3.Native
 {
-    public static class GtkButtonBox
-    {   
+    public static class GtkSeparator
+    {
         [DllImport(GtkConstants.GtkLib)]
-        public static extern IntPtr gtk_button_box_new(Orientation orientation);
+        public static extern IntPtr gtk_separator_new(Orientation orientation);
     }
 }

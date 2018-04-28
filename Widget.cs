@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace gtk3_net
+namespace Gtk3
 {
     public abstract class Widget
     {

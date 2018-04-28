@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace gtk3_net.Native
+namespace Gtk3.Native
 {
     public static class GtkEntryBuffer
     {

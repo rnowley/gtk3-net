@@ -1,5 +1,5 @@
 ﻿using System;
-using gtk3_net;
+using Gtk3;
 
 namespace builderExample
 {
