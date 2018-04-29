@@ -30,7 +30,7 @@ namespace sample
         private static void Activate(IntPtr app, IntPtr data)
         {
             var window = new Window(app);
-            window.SetTitle("Window");
+            window.Title = "Window";
             window.SetDefaultSize(200, 200);
             window.SetBorderWidth(10);
 

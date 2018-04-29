@@ -10,20 +10,14 @@ namespace Gtk3
 
         public Application(string applicationId, GApplicationFlags flags)
         {
-            _instance = NativeMethods.gtk_application_new(applicationId, flags);
+            _instance = Native.GtkApplication.gtk_application_new(applicationId, flags);
         }
 
         public void ConnectSignal(string detailedSignal, ApplicationCallBack callback, NativeMethods.GClosureNotify destroyData)
         {
             NativeMethods.g_signal_connect_data(_instance, detailedSignal,
-                Marshal.GetFunctionPointerForDelegate(callback), IntPtr.Zero, 
+                Marshal.GetFunctionPointerForDelegate(callback), IntPtr.Zero,
                 destroyData, GConnectFlags.ConnectAfter);
-        }
-
-        public Window CreateWindow()
-        {
-            var windowHandle = NativeMethods.gtk_application_window_new(Handle);
-            return new Window(windowHandle);
         }
 
         public int Run(int argc, string[] argv)
