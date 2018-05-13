@@ -3,24 +3,15 @@ using Gtk3;
 
 namespace sample
 {
-    public delegate void CallBack(IntPtr app, IntPtr data);
-
-    public delegate void CallBack2(IntPtr app);
 
     public static class Program
     {
         public static void Main(string[] args)
         {
             var app1 = new Application("org.gtk.example", GApplicationFlags.None);
-            app1.ConnectSignal("activate", Activate, FreeData);
+            app1.ConnectActivateSignal(Activate, FreeData);
             app1.Run(0, args);
             app1.Exit();
-            //var app = NativeMethods.gtk_application_new("org.gtk.example", GApplicationFlags.None);
-            //NativeMethods.g_signal_connect_data(app, "activate",
-            //    Marshal.GetFunctionPointerForDelegate(new CallBack(Activate)),
-            //    IntPtr.Zero, FreeData, GConnectFlags.ConnectAfter);
-            //NativeMethods.g_application_run(app, args.Length, args);
-            //NativeMethods.g_object_unref(app);
         }
 
         private static void FreeData()
@@ -39,15 +30,16 @@ namespace sample
             window.AddWidget(grid);
 
             var button = new Button("Button 1");
-            button.ConnectSignal("clicked", PrintHello, IntPtr.Zero, FreeData);
+            button.ConnectClickedSignal(PrintHello, IntPtr.Zero, FreeData);
             grid.Attach(button, 0, 0, 1, 1);
 
-            button = new Button("Button 2");
-            button.ConnectSignal("clicked", PrintHello, IntPtr.Zero, FreeData);
-            grid.Attach(button, 1, 0, 1, 1);
+            var toggleButton = new ToggleButton("Button 2");
+            toggleButton.ConnectToggledSignal(PrintToggled,
+                IntPtr.Zero, FreeData);
+            grid.Attach(toggleButton, 1, 0, 1, 1);
 
             button = new Button("Quit");
-            button.ConnectSignalSwapped("clicked", WindowDestroy, window.Handle, FreeData);
+            button.ConnectClickedSignalSwapped(WindowDestroy, window.Handle, FreeData);
             grid.Attach(button, 0, 1, 2, 1);
             window.Show();
         }
@@ -60,6 +52,11 @@ namespace sample
         private static void PrintHello(IntPtr app, IntPtr data)
         {
             Console.WriteLine("Hello World!");
+        }
+
+        private static void PrintToggled(IntPtr app, IntPtr data)
+        {
+            Console.WriteLine("Toggled!");
         }
     }
 }

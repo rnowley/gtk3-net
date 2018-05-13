@@ -13,9 +13,9 @@ namespace Gtk3
             _instance = Native.GtkApplication.gtk_application_new(applicationId, flags);
         }
 
-        public void ConnectSignal(string detailedSignal, ApplicationCallBack callback, NativeMethods.GClosureNotify destroyData)
+        public void ConnectActivateSignal(ApplicationCallBack callback, NativeMethods.GClosureNotify destroyData)
         {
-            NativeMethods.g_signal_connect_data(_instance, detailedSignal,
+            NativeMethods.g_signal_connect_data(_instance, "activate",
                 Marshal.GetFunctionPointerForDelegate(callback), IntPtr.Zero,
                 destroyData, GConnectFlags.ConnectAfter);
         }
