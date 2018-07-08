@@ -4,7 +4,7 @@ using Gtk3.Native;
 
 namespace Gtk3
 {
-    public class Image : Misc
+    public class Image : Widget
     {
 
         /// <summary>
