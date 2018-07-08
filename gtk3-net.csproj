@@ -1,15 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netcoreapp2.1;netstandard2.0</TargetFrameworks>
+    <LangVersion>7.2</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="sample\**" />
+    <Compile Remove="ImageViewer\**" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Remove="sample\**" />
+    <EmbeddedResource Remove="ImageViewer\**" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="sample\**" />
+    <None Remove="ImageViewer\**" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="builderExample\**" />

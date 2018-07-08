@@ -36,11 +36,11 @@ namespace Gtk3
 		/// <summary>
 		/// Inserts `numberOfChars` characters of `text` into the contents of the
 		/// buffer, at position `position`.
-		/// 
-		// If `numberOfChars` is negative, then characters from text will be inserted
-		// until a null-terminator is found. If `position` or `numberOfChars` are out of
-		// bounds, or the maximum buffer text length is exceeded, then they are
-		// coerced to sane values.
+		///
+		/// If `numberOfChars` is negative, then characters from text will be inserted
+		/// until a null-terminator is found. If `position` or `numberOfChars` are out of
+		/// bounds, or the maximum buffer text length is exceeded, then they are
+		/// coerced to sane values.
 		/// </summary>
 		/// <param name="position">the position at which to insert text.</param>
 		/// <param name="text">the text to insert into the buffer.</param>

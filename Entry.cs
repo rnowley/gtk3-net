@@ -5,15 +5,12 @@ namespace Gtk3
 
 	public class Entry : Widget {
 
-		private readonly IntPtr _instance;
-
-		public override IntPtr Handle => _instance;
 
 		/// <summary>
 		/// Creates a new instance of an Entry.
 		/// </summary>
 		public Entry() {
-			_instance = Native.GtkEntry.gtk_entry_new();
+			Instance = Native.GtkEntry.gtk_entry_new();
 		}
 
 		/// <summary>
@@ -22,7 +19,7 @@ namespace Gtk3
 		/// <param name="buffer">The buffer to use for the new Entry.</param>
 		public Entry(EntryBuffer buffer)
 		{
-			_instance = Native.GtkEntry.gtk_entry_new_with_buffer(buffer.Handle);
+			Instance = Native.GtkEntry.gtk_entry_new_with_buffer(buffer.Handle);
 		}
 
 		/// <summary>
@@ -74,7 +71,7 @@ namespace Gtk3
 			{
 				value = (uint) invisibleCharacter;
 			}
-			
+
 			Native.GtkEntry.gtk_entry_set_invisible_char(Handle, value);
 		}
 
@@ -124,7 +121,7 @@ namespace Gtk3
 		public string PlaceholderText
 		{
 			get => Native.GtkEntry.gtk_entry_get_placeholder_text(Handle);
-			
+
 			set => Native.GtkEntry.gtk_entry_set_placeholder_text(Handle, value);
 		}
 
@@ -139,7 +136,7 @@ namespace Gtk3
 
 			set => Native.GtkEntry.gtk_entry_set_progress_fraction(Handle, value);
 		}
-		
+
 		/// <summary>
 		/// Sets the fraction of total entry width to move the progress
 		/// bouncing block for each call to ProgressPulse().
@@ -157,7 +154,7 @@ namespace Gtk3
 		public string Text
 		{
 			get => Native.GtkEntry.gtk_entry_get_text(Handle);
-			
+
 			set => Native.GtkEntry.gtk_entry_set_text(Handle, value);
 		}
 

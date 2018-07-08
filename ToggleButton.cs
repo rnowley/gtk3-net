@@ -18,14 +18,13 @@ namespace Gtk3
     /// </summary>
     public class ToggleButton: Button
     {
-        private readonly IntPtr _instance;
 
         /// <summary>
         /// Creates a new toggle button.
         /// </summary>
         public ToggleButton()
         {
-            _instance = GtkToggleButton.gtk_toggle_button_new();
+            Instance = GtkToggleButton.gtk_toggle_button_new();
         }
 
         /// <summary>
@@ -41,11 +40,11 @@ namespace Gtk3
 
             if (label.Contains("_"))
             {
-                _instance = GtkToggleButton.gtk_toggle_button_new_with_mnemonic(label);
+                Instance = GtkToggleButton.gtk_toggle_button_new_with_mnemonic(label);
             }
             else
             {
-                _instance = GtkToggleButton.gtk_toggle_button_new_with_label(label);
+                Instance = GtkToggleButton.gtk_toggle_button_new_with_label(label);
             }
 
         }
@@ -106,6 +105,5 @@ namespace Gtk3
         {
         }
 
-        public override IntPtr Handle => _instance;
     }
 }

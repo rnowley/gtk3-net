@@ -30,15 +30,13 @@ namespace Gtk3
     /// </summary>
     public class ApplicationWindow : Window
     {
-        private readonly IntPtr _instance;
-
         /// <summary>
         /// Creates a new ApplicationWindow.
         /// </summary>
         /// <param name="application">The <see cref="Application"/> that the widow is attached to.</param>
         public ApplicationWindow(Application application)
         {
-            _instance = Native.GtkApplicationWindow.gtk_application_window_new(application.Handle);
+            Instance = Native.GtkApplicationWindow.gtk_application_window_new(application.Handle);
         }
 
         /// <summary>
@@ -56,6 +54,5 @@ namespace Gtk3
         /// </summary>
         public uint Id => Native.GtkApplicationWindow.gtk_application_window_get_id(Handle);
 
-        internal IntPtr Handle => _instance;
     }
 }

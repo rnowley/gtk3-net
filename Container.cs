@@ -1,5 +1,4 @@
-﻿using System;
-using Gtk3.Native;
+﻿using Gtk3.Native;
 
 namespace Gtk3
 {
@@ -22,7 +21,7 @@ namespace Gtk3
         {
             GtkContainer.gtk_container_add(Handle, widget.Handle);
         }
-        
+
         public void SetBorderWidth(uint borderWidth) {
             GtkContainer.gtk_container_set_border_width(Handle, borderWidth);
         }

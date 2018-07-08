@@ -1,4 +1,3 @@
-using System;
 using Gtk3.Native;
 
 namespace Gtk3
@@ -6,11 +5,8 @@ namespace Gtk3
 	///<summary>
 	/// A representation of an adjustable bounded value.
 	/// </summary>
-	public class Adjustment
+	public class Adjustment : Widget
 	{
-        private readonly IntPtr _instance;
-
-        public IntPtr Handle => _instance;
 
 		/// <summary>
 		/// Creates a new Adjustment object.
@@ -23,7 +19,7 @@ namespace Gtk3
 		/// <param name="pageSize">The page size</param>
 		public Adjustment(double value, double lower, double upper, double stepIncrement,
 				double pageIncrement, double pageSize) {
-			_instance = GtkAdjustment.gtk_adjustment_new(value, lower,
+			Instance = GtkAdjustment.gtk_adjustment_new(value, lower,
 					upper, stepIncrement, pageIncrement, pageSize);
 
 		}

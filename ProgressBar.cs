@@ -25,14 +25,13 @@ namespace Gtk3
     /// </summary>
     public class ProgressBar: Widget
     {
-        private readonly IntPtr _instance;
 
         /// <summary>
         /// Creates a new ProgressBar.
         /// </summary>
         public ProgressBar()
         {
-            _instance = GtkProgressBar.gtk_progress_bar_new();
+            Instance = GtkProgressBar.gtk_progress_bar_new();
         }
 
         /// <summary>
@@ -121,8 +120,8 @@ namespace Gtk3
         }
 
         /// <summary>
-        // Gets or sets the fraction of total progress bar length to move the bouncing
-        // block for each call to Pulse().
+        /// Gets or sets the fraction of total progress bar length to move the bouncing
+        /// block for each call to Pulse().
         /// </summary>
         /// <exception cref="ArgumentOutOfRangeException">Indicates that value is outside of the allowed range.</exception>
         public double PulseStep
@@ -139,6 +138,5 @@ namespace Gtk3
             }
         }
 
-        public override IntPtr Handle => _instance;
     }
 }

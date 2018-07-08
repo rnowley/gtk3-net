@@ -5,11 +5,12 @@ namespace Gtk3
 {
     public abstract class Widget
     {
+        protected IntPtr Instance;
         public delegate void WidgetCallBack();
 
         public delegate void WidgetCallBack2Arg(IntPtr widget, IntPtr data);
 
-        public abstract IntPtr Handle { get; }
+        public virtual IntPtr Handle => Instance;
 
         public virtual void ConnectSignal(string detailedSignal, WidgetCallBack callback, IntPtr data, NativeMethods.GClosureNotify destroyData)
         {

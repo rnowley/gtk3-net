@@ -1,5 +1,4 @@
-﻿using System;
-using Gtk3.Native;
+﻿using Gtk3.Native;
 
 namespace Gtk3
 {
@@ -11,14 +10,13 @@ namespace Gtk3
     /// </summary>
     public class CheckButton: ToggleButton
     {
-        private readonly IntPtr _instance;
 
         /// <summary>
         /// Creates a new CheckButton.
         /// </summary>
         public CheckButton()
         {
-            _instance = GtkCheckButton.gtk_check_button_new();
+            Instance = GtkCheckButton.gtk_check_button_new();
         }
 
         /// <summary>
@@ -34,16 +32,14 @@ namespace Gtk3
 
             if (label.Contains("_"))
             {
-                _instance = GtkCheckButton.gtk_check_button_new_with_mnemonic(label);
+                Instance = GtkCheckButton.gtk_check_button_new_with_mnemonic(label);
             }
             else
             {
-                _instance = GtkCheckButton.gtk_check_button_new_with_label(label);
+                Instance = GtkCheckButton.gtk_check_button_new_with_label(label);
             }
 
         }
 
-
-        public override IntPtr Handle => _instance;
     }
 }

@@ -34,11 +34,10 @@ namespace Gtk3
     /// </summary>
     public class RadioButton : CheckButton
     {
-        private readonly IntPtr _instance;
 
         public RadioButton()
         {
-            _instance = GtkRadioButton.gtk_radio_button_new(IntPtr.Zero);
+            Instance = GtkRadioButton.gtk_radio_button_new(IntPtr.Zero);
         }
 
         /// <summary>
@@ -49,7 +48,7 @@ namespace Gtk3
         /// <param name="radioGroupMember">an existing RadioButton.</param>
         public RadioButton(RadioButton radioGroupMember)
         {
-            _instance = GtkRadioButton.gtk_radio_button_new_from_widget(radioGroupMember.Handle);
+            Instance = GtkRadioButton.gtk_radio_button_new_from_widget(radioGroupMember.Handle);
         }
 
         /// <summary>
@@ -65,17 +64,17 @@ namespace Gtk3
 
             if (radioGroupMember == null)
             {
-                 _instance = GtkRadioButton.gtk_radio_button_new_with_label_from_widget(IntPtr.Zero, label);
+                 Instance = GtkRadioButton.gtk_radio_button_new_with_label_from_widget(IntPtr.Zero, label);
                 return;
             }
 
             if (label.Contains("_"))
             {
-                _instance = GtkRadioButton.gtk_radio_button_new_with_mnemonic_from_widget(radioGroupMember.Handle, label);
+                Instance = GtkRadioButton.gtk_radio_button_new_with_mnemonic_from_widget(radioGroupMember.Handle, label);
             }
             else
             {
-                _instance = GtkRadioButton.gtk_radio_button_new_with_label_from_widget(radioGroupMember.Handle, label);
+                Instance = GtkRadioButton.gtk_radio_button_new_with_label_from_widget(radioGroupMember.Handle, label);
             }
 
         }
@@ -106,6 +105,5 @@ namespace Gtk3
                 destroyData, GConnectFlags.ConnectAfter);
         }
 
-        public override IntPtr Handle => _instance;
     }
 }

@@ -6,7 +6,6 @@ namespace Gtk3
 {
     public class Button : Widget
     {
-        private readonly IntPtr _instance;
 
         private delegate void FireEventDelegate(IntPtr app, IntPtr data);
         public delegate void ButtonDelegate(object sender, EventArgs e);
@@ -15,12 +14,12 @@ namespace Gtk3
 
         public Button(string label)
         {
-            _instance = GtkButton.gtk_button_new_with_label(label);
+            Instance = GtkButton.gtk_button_new_with_label(label);
         }
 
         public Button(IntPtr instance)
         {
-            _instance = instance;
+            Instance = instance;
         }
 
         public void ConnectClickedSignal(WidgetCallBack2Arg callback, IntPtr data, NativeMethods.GClosureNotify destroyData)
@@ -38,6 +37,5 @@ namespace Gtk3
 
         }
 
-        public override IntPtr Handle => _instance;
     }
 }
