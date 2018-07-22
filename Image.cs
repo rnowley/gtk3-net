@@ -25,7 +25,7 @@ namespace Gtk3
         /// gtk_image_new_from_icon_name().
         /// </summary>
         /// <param name="pixbuf">a Pixbuf, or null.</param>
-        public Image(Pixbuf pixbuf)
+        public Image(PixBuf pixbuf)
         {
 
             if (pixbuf == null)
@@ -225,9 +225,9 @@ namespace Gtk3
         /// </summary>
         public int PixelSize
         {
-            get => Native.GtkImage.gtk_image_get_pixel_size(Instance);
+            get => GtkImage.gtk_image_get_pixel_size(Instance);
 
-            set => Native.GtkImage.gtk_image_set_pixel_size(Instance, value);
+            set => GtkImage.gtk_image_set_pixel_size(Instance, value);
         }
     }
 
@@ -253,15 +253,6 @@ namespace Gtk3
         Resource
     }
 
-    public class PixbufAnimation
-    {
-        public IntPtr Instance { get; set; }
-    }
-
-    public class Pixbuf
-    {
-        public IntPtr Instance { get; set; }
-    }
 
     public class CairoSurface
     {

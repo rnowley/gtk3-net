@@ -1,4 +1,5 @@
-﻿using Gtk3.Native;
+﻿using System;
+using Gtk3.Native;
 
 namespace Gtk3
 {
@@ -46,6 +47,11 @@ namespace Gtk3
         public Box(Orientation orientation, int spacing)
         {
             Instance = GtkBox.gtk_box_new(orientation, spacing);
+        }
+
+        internal Box(IntPtr handle)
+        {
+            Instance = handle;
         }
 
         /// <summary>
