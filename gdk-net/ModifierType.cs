@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Gtk3.Gdk
+namespace Gdk
 {
     /// <summary>
     /// A set of bit-flags to indicate the state of modifier keys and mouse buttons in various

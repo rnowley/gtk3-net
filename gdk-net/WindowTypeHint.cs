@@ -1,4 +1,4 @@
-﻿namespace Gtk3.Gdk
+﻿namespace Gdk
 {
     /// <summary>
     /// These are hints for the window manager that indicate what type of function the window

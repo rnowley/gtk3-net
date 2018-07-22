@@ -1,4 +1,4 @@
-﻿namespace Gtk3.Gdk
+﻿namespace Gdk
 {
     /// <summary>
     /// Defines the reference point of a window and the meaning of coordinates passed to

@@ -1,4 +1,4 @@
-﻿namespace Gtk3.Gdk
+﻿namespace Gdk
 {
     /// <summary>
     /// Determines a window edge or corner.

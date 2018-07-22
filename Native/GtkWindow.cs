@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
-using Gtk3.Gdk;
+using Gdk;
 
 namespace Gtk3.Native
 {

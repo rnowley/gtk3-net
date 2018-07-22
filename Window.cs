@@ -1,5 +1,5 @@
 ﻿using System;
-using Gtk3.Gdk;
+using Gdk;
 using Gtk3.Native;
 
 namespace Gtk3

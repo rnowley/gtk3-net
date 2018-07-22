@@ -1,15 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="sample\**" />
+    <Compile Remove="glib-net\**" />
+    <Compile Remove="ImageViewer\**" />
+    <Compile Remove="gdk-net\**" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Remove="sample\**" />
+    <EmbeddedResource Remove="glib-net\**" />
+    <EmbeddedResource Remove="ImageViewer\**" />
+    <EmbeddedResource Remove="gdk-net\**" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="sample\**" />
+    <None Remove="glib-net\**" />
+    <None Remove="ImageViewer\**" />
+    <None Remove="gdk-net\**" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="builderExample\**" />
@@ -19,5 +28,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="builderExample\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Gdk" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="gdk-net\gdk-net.csproj" />
+    <ProjectReference Include="glib-net\glib-net.csproj" />
   </ItemGroup>
 </Project>
